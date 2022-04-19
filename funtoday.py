@@ -83,6 +83,7 @@ def main():
         else:
             print("error, exiting")
             return
+        print()
         whatdo = input("r for read, w for write, l for lookup, a for append, q for quit\n")
 
     print("goodbye")
