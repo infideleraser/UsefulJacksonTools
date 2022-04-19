@@ -1,8 +1,8 @@
 import datetime
 
 
-def make_dictionary():
-    file = open("data.txt", 'r')
+def make_dictionary(filename):
+    file = open(filename, 'r')
     lines = file.readlines()
     count = 0
     dictionary = dict()
@@ -31,8 +31,8 @@ def read():
 
 
 
-def write():
-    file=open('data.txt', 'a')
+def write(filename):
+    file=open(filename, 'a')
     date=datetime.datetime.now()
     file.write('\n\n')
     file.write(date.strftime('%m/%d/%Y')+'\n')
@@ -41,8 +41,8 @@ def write():
     print()
     file.close()
 
-def append():
-    file=open('data.txt', 'a')
+def append(filename):
+    file=open(filename, 'a')
     stuff=input("What else do you want to add?\n")
     file.write(stuff)
     print()
@@ -64,20 +64,22 @@ def lookup():
     print(text)
 
 def main():
+    filename=input("enter filename - edit FILENAME variable in code and "
+          "comment out this line to skip this step")
     whatdo=input("r for read, w for write, l for lookup, a for append, q for quit\n")
     while whatdo != 'q':
         if whatdo == "r":
             print()
-            read()
+            read(filename)
         elif whatdo == 'w':
             print()
-            write()
+            write(filename)
         elif whatdo == 'l':
             print()
             lookup()
         elif whatdo == 'a':
             print()
-            append()
+            append(filename)
         else:
             print("error, exiting")
             return
